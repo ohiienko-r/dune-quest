@@ -1,7 +1,10 @@
 {
     "heroTitle": "Delve into adventurous journey!",
-    "heroBtn": "Start",
+    "heroBtn": "Start the room",
     "errorTitle": "Oops!",
     "errorText": "Seems like you are lost in sands...",
-    "errorCallToAction": "👉Get back👈"
+    "errorCallToAction": "👉Get back👈",
+    "firstRiddleText": "Outside the city, there is nothing but sand and stone. The sun has long scorched everything alive. Walking through the desert in search of people who don't want to be found is suicide. We need aerial transportation. Preferably, it should be able to hover in the air like a grandma. What could it be?",
+    "firstRiddleAnswerFormat": "The format of the response — word in Latin script.",
+    "sendBtn": "Send"
 }
