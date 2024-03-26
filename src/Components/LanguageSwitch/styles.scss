@@ -1,0 +1,34 @@
+.switcher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  &__toggle {
+    cursor: pointer;
+    appearance: none;
+    position: relative;
+    width: 60px;
+    height: 30px;
+    border: 1px solid orange;
+    border-radius: 100px;
+    transition: background-color 0.2s;
+    &::after {
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 25%;
+      transform: translate(-50%, -50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: white;
+      transition: left 0.2s;
+    }
+    &:checked {
+      background-color: orange;
+      &::after {
+        left: 75%;
+      }
+    }
+  }
+}
