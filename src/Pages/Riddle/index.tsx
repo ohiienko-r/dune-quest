@@ -6,6 +6,7 @@ import { RiddlePropTypes } from "./types";
 import "./styles.scss";
 
 const Riddle: FC<RiddlePropTypes> = ({
+  id,
   image,
   text,
   answerFormat,
@@ -23,6 +24,7 @@ const Riddle: FC<RiddlePropTypes> = ({
   const handleSubmit = () => {
     setModalVisible(true);
   };
+  console.log(`${id} + ${hints} +`);
 
   return (
     <>

@@ -22,6 +22,7 @@ const Router = () => {
           path: ROUTES_NAMES.FIRST_RIDDLE,
           element: (
             <Riddle
+              id={riddles.first.id}
               image={riddles.first.image}
               text={riddles.first.text}
               answerFormat={riddles.first.answerFormat}
@@ -33,10 +34,23 @@ const Router = () => {
           path: ROUTES_NAMES.SECOND_RIDDLE,
           element: (
             <Riddle
+              id={riddles.second.id}
               image={riddles.second.image}
               text={riddles.second.text}
               answerFormat={riddles.second.answerFormat}
               nextRoute={riddles.second.nextStep}
+            />
+          ),
+        },
+        {
+          path: ROUTES_NAMES.THIRD_RIDDLE,
+          element: (
+            <Riddle
+              id={riddles.third.id}
+              image={riddles.third.image}
+              text={riddles.third.text}
+              answerFormat={riddles.third.answerFormat}
+              nextRoute={riddles.third.nextStep}
             />
           ),
         },
