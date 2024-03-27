@@ -2,6 +2,7 @@ import { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { SubmitButton } from "@/Components";
+import { ROUTES_NAMES } from "@/Router/routes-names";
 import "./styles.scss";
 
 const Hero: FC = () => {
@@ -9,7 +10,7 @@ const Hero: FC = () => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    navigate("/the_beginning");
+    navigate(ROUTES_NAMES.FIRST_RIDDLE);
   };
 
   return (

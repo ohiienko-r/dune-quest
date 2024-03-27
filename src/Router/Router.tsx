@@ -1,12 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./rotues/Root";
 import Error from "./rotues/Error";
-
+import { ROUTES_NAMES } from "./routes-names";
 import { Hero, FirstRiddle } from "@/Pages";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: ROUTES_NAMES.HOME,
     element: <Root />,
     errorElement: <Error />,
     children: [
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
         element: <Hero />,
       },
       {
-        path: "/the_beginning",
+        path: ROUTES_NAMES.FIRST_RIDDLE,
         element: <FirstRiddle />,
       },
     ],
