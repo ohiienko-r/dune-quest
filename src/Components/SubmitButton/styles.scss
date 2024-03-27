@@ -9,4 +9,9 @@
   &:hover {
     border: 1px solid white;
   }
+  &:disabled {
+    &:hover {
+      border: 1px solid transparent;
+    }
+  }
 }

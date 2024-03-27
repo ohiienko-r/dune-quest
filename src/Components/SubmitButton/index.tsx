@@ -9,10 +9,12 @@ const SubmitButton: FC<SubmitButtonProps> = ({
   onClick,
 }) => {
   const getColorStyles = () => {
-    if (color === "dismiss") {
-      return { backgroundColor: "#7f1d1d", color: "white" };
-    } else if (color === "submit") {
-      return { backgroundColor: "orange" };
+    if (!disabled) {
+      if (color === "dismiss") {
+        return { backgroundColor: "#7f1d1d", color: "white" };
+      } else if (color === "submit") {
+        return { backgroundColor: "orange" };
+      }
     }
   };
 
