@@ -7,7 +7,7 @@ const useRiddles = () => {
   const riddles = {
     first: {
       id: 0,
-      image: "",
+      image: "Here must be an image",
       text: t("firstRiddleText"),
       answerFormat: t("firstRiddleAnswerFormat"),
       hints: ["", "", ""],
@@ -15,7 +15,7 @@ const useRiddles = () => {
     },
     second: {
       id: 1,
-      image: "",
+      image: "Here must be an image",
       text: t("secondRiddleText"),
       answerFormat: t("secondRiddleAsnwerFormat"),
       hints: ["", "", ""],
@@ -23,7 +23,7 @@ const useRiddles = () => {
     },
     third: {
       id: 2,
-      image: "",
+      image: "Here must be an image",
       text: t("thirdRiddleText"),
       answerFormat: t("thirdRiddleAnswerformat"),
       hints: ["", "", ""],
