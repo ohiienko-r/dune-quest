@@ -5,7 +5,7 @@ import "./styles.scss";
 const SubmitButton: FC<SubmitButtonProps> = ({
   caption,
   disabled = false,
-  color = "submit",
+  color,
   onClick,
 }) => {
   const getColorStyles = () => {

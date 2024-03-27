@@ -1,6 +1,7 @@
 import { FC, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import { SubmitButton, Modal } from "@/Components";
 import { RiddlePropTypes } from "./types";
 import "./styles.scss";
@@ -41,23 +42,29 @@ const Riddle: FC<RiddlePropTypes> = ({
           </button>
         </Modal>
       )}
-      <div className="riddle">
-        <div className="riddle__container">
-          <h2>{image}</h2>
-          <div className="riddle__text-container">
-            <p>{text}</p>
-            <p>{answerFormat}</p>
+      <AnimatePresence>
+        <motion.div
+          className="riddle"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <div className="riddle__container">
+            <h2>{image}</h2>
+            <div className="riddle__text-container">
+              <p>{text}</p>
+              <p>{answerFormat}</p>
+            </div>
+            <div className="riddle__answer-input-container">
+              <input type="text" className="riddle__answer-input" />
+              <SubmitButton
+                caption={t("sendBtn")}
+                onClick={handleSubmit}
+                color="submit"
+              />
+            </div>
           </div>
-          <div className="riddle__answer-input-container">
-            <input type="text" className="riddle__answer-input" />
-            <SubmitButton
-              caption={t("sendBtn")}
-              onClick={handleSubmit}
-              color="submit"
-            />
-          </div>
-        </div>
-      </div>
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 };
