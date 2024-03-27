@@ -50,7 +50,11 @@ const Riddle: FC<RiddlePropTypes> = ({
           </div>
           <div className="riddle__answer-input-container">
             <input type="text" className="riddle__answer-input" />
-            <SubmitButton caption={t("sendBtn")} onClick={handleSubmit} />
+            <SubmitButton
+              caption={t("sendBtn")}
+              onClick={handleSubmit}
+              color="submit"
+            />
           </div>
         </div>
       </div>

@@ -10,5 +10,8 @@
     "secondRiddleAsnwerFormat": "The format of the response — word in Latin script.",
     "thirdRiddleText": "For three hours, we fly westward over the sandy sea. When massive rocky chasms begin to appear below us, Duncan's intuition prompts us to slow down and investigate the area more carefully. We hover above the desert, but the sunlight dazzles the eyes, making it difficult to discern details, so we settle on a large flat rock that allows us to inspect the sand beneath it. The Fremen are masters of camouflage, yet there is neither dune nor stone below us—just sand. Intuition suggests that someone is hiding right before our eyes. We just need to look closer. How many of them are there?",
     "thirdRiddleAnswerformat": "The format of the response — word in Latin script.",
-    "sendBtn": "Send"
+    "sendBtn": "Send",
+    "leaveModalCaption": "Are you sure you want to leave?",
+    "yes": "Yes",
+    "no": "No"
 }

@@ -1,6 +1,6 @@
 export type SubmitButtonProps = {
   caption: string;
   disabled?: boolean;
-  color?: string;
+  color: "submit" | "dismiss";
   onClick: () => void;
 };

@@ -5,19 +5,23 @@ import "./styles.scss";
 const SubmitButton: FC<SubmitButtonProps> = ({
   caption,
   disabled = false,
-  color = "#ffa500",
+  color = "submit",
   onClick,
 }) => {
+  const getColorStyles = () => {
+    if (color === "dismiss") {
+      return { backgroundColor: "#7f1d1d", color: "white" };
+    } else if (color === "submit") {
+      return { backgroundColor: "orange" };
+    }
+  };
+
   return (
     <button
       disabled={disabled}
       onClick={onClick}
       className="submit-button"
-      style={
-        color !== "#ffa500"
-          ? { backgroundColor: color, color: "white" }
-          : { backgroundColor: color }
-      }
+      style={getColorStyles()}
     >
       {caption}
     </button>
