@@ -29,6 +29,17 @@ const Router = () => {
             />
           ),
         },
+        {
+          path: ROUTES_NAMES.SECOND_RIDDLE,
+          element: (
+            <Riddle
+              image={riddles.second.image}
+              text={riddles.second.text}
+              answerFormat={riddles.second.answerFormat}
+              nextRoute={riddles.second.nextStep}
+            />
+          ),
+        },
       ],
     },
   ]);
