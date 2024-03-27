@@ -25,4 +25,15 @@
     flex-direction: column;
     gap: 1em;
   }
+  &__answer-input-container {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+  &__answer-input {
+    padding: 1em;
+    border-radius: 1em;
+    border: 1px solid transparent;
+    font-size: 16px;
+  }
 }

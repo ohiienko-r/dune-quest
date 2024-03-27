@@ -27,8 +27,8 @@ const Riddle: FC<RiddlePropTypes> = ({
           <p>{text}</p>
           <p>{answerFormat}</p>
         </div>
-        <div>
-          <input type="text" />
+        <div className="riddle__answer-input-container">
+          <input type="text" className="riddle__answer-input" />
           <SubmitButton caption={t("sendBtn")} onClick={() => {}} />
         </div>
       </div>
