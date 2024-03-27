@@ -6,5 +6,9 @@
     "errorCallToAction": "👉Get back👈",
     "firstRiddleText": "Outside the city, there is nothing but sand and stone. The sun has long scorched everything alive. Walking through the desert in search of people who don't want to be found is suicide. We need aerial transportation. Preferably, it should be able to hover in the air like a grandma. What could it be?",
     "firstRiddleAnswerFormat": "The format of the response — word in Latin script.",
+    "secondRiddleText": "An ornithopter is present. Now the challenge is to understand where to locate the Fremen. We know they live deep in the desert, but the desert is all around here. Still on Caladan, in the Duke's library, we found records of the ancient fortress Qasr Usaykhim, which has long been in ruins. Guards of the fortress sometimes saw barely noticeable figures moving on the horizon, right in front of the gate. Perhaps those were the ones we are looking for. We need to find this fortress. It will help find the direction in which to search.",
+    "secondRiddleAsnwerFormat": "The format of the response — word in Latin script.",
+    "thirdRiddleText": "For three hours, we fly westward over the sandy sea. When massive rocky chasms begin to appear below us, Duncan's intuition prompts us to slow down and investigate the area more carefully. We hover above the desert, but the sunlight dazzles the eyes, making it difficult to discern details, so we settle on a large flat rock that allows us to inspect the sand beneath it. The Fremen are masters of camouflage, yet there is neither dune nor stone below us—just sand. Intuition suggests that someone is hiding right before our eyes. We just need to look closer. How many of them are there?",
+    "thirdRiddleAnswerformat": "The format of the response — word in Latin script.",
     "sendBtn": "Send"
 }
