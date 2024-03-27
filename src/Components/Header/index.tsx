@@ -23,7 +23,14 @@ const Header: FC = () => {
       {modalVisible && (
         <Modal>
           <h2>Are you sure you want to leave?</h2>
-          <SubmitButton caption="Yes" onClick={handleNavigate} />
+          <div>
+            <SubmitButton
+              caption="No"
+              onClick={() => setModalVisible(false)}
+              color="#7f1d1d"
+            />
+            <SubmitButton caption="Yes" onClick={handleNavigate} />
+          </div>
         </Modal>
       )}
       <header className="navigation">
