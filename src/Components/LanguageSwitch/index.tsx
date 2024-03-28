@@ -7,6 +7,21 @@ const LanguageSwitch: FC = () => {
   const toggleRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    if (!localStorage.getItem("preferedLanguage")) {
+      localStorage.setItem("preferedLanguage", "en");
+    }
+
+    if (
+      toggleRef.current &&
+      localStorage.getItem("preferedLanguage") === "en"
+    ) {
+      toggleRef.current.checked = false;
+    } else if (toggleRef.current) {
+      toggleRef.current.checked = true;
+    }
+  }, []);
+
+  useEffect(() => {
     toggleRef.current?.checked
       ? i18n.changeLanguage("ua")
       : i18n.changeLanguage("en");
@@ -15,8 +30,10 @@ const LanguageSwitch: FC = () => {
   const handlechange = () => {
     if (i18n.language === "en") {
       i18n.changeLanguage("ua");
+      localStorage.setItem("preferedLanguage", "ua");
     } else {
       i18n.changeLanguage("en");
+      localStorage.setItem("preferedLanguage", "en");
     }
   };
 
