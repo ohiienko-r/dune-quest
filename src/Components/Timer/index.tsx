@@ -1,6 +1,5 @@
 import { FC, useState, useEffect } from "react";
 import { TimerPropTypes } from "./types";
-import "./styles.scss";
 
 const Timer: FC<TimerPropTypes> = ({ id, onCountdownOver }) => {
   const [timeLeft, setTimeLeft] = useState<number>(id * 60);
@@ -29,7 +28,19 @@ const Timer: FC<TimerPropTypes> = ({ id, onCountdownOver }) => {
       .padStart(2, "0")}`;
   };
 
-  return <div className="timer">{formatTime(timeLeft)}</div>;
+  const getStringcolor = () => {
+    if (timeLeft === 0) {
+      return { color: "gray" };
+    } else {
+      return { color: "orange" };
+    }
+  };
+
+  return (
+    <div className="timer" style={getStringcolor()}>
+      {formatTime(timeLeft)}
+    </div>
+  );
 };
 
 export default Timer;

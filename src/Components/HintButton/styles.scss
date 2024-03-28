@@ -1,0 +1,20 @@
+.hint-button {
+  cursor: pointer;
+  padding: 0.5em 1em;
+  border: 2px solid orange;
+  background-color: transparent;
+  color: orange;
+  border-radius: 1em;
+  transition: transform 0.15s;
+  &:hover {
+    transform: translateY(-5px);
+  }
+  &:disabled {
+    border: 2px solid gray;
+    color: gray;
+    &:hover {
+      cursor: default;
+      transform: none;
+    }
+  }
+}

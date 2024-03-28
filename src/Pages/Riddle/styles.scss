@@ -42,7 +42,12 @@
   }
   &__hints-container {
     display: flex;
-    gap: 2em;
+    gap: 4em;
+  }
+  &__hint-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
   }
   &__hint-button {
     text-decoration: underline;

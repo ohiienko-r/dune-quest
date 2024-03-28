@@ -2,7 +2,7 @@ import { FC, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { SubmitButton, Modal, Timer } from "@/Components";
+import { SubmitButton, Modal, Timer, HintButton } from "@/Components";
 import { getAnswer } from "@/Firebase";
 import { RiddlePropTypes } from "./types";
 import closeButton from "../../assets/close_button.svg";
@@ -113,10 +113,8 @@ const Riddle: FC<RiddlePropTypes> = ({
             </div>
             <div className="riddle__hints-container">
               {hints.map((hint) => (
-                <div key={hint.id}>
-                  <p className="riddle__hint-button">{`${t("hint")} ${
-                    hint.id
-                  }`}</p>
+                <div key={hint.id} className="riddle__hint-container">
+                  <HintButton id={hint.id} disabled={false} />
                   <Timer
                     key={+hint.id + (solved ? 1 : 0)}
                     id={+hint.id}
