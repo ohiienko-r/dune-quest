@@ -2,7 +2,7 @@ import { FC, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { SubmitButton, Modal } from "@/Components";
+import { SubmitButton, Modal, Timer } from "@/Components";
 import { getAnswer } from "@/Firebase";
 import { RiddlePropTypes } from "./types";
 import closeButton from "../../assets/close_button.svg";
@@ -22,6 +22,7 @@ const Riddle: FC<RiddlePropTypes> = ({
   const [successModalvisible, setSuccessModalVisible] =
     useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>("");
+  const [solved, setSolved] = useState<boolean>(false);
 
   useEffect(() => {
     const handleEnterPress = (event: KeyboardEvent) => {
@@ -56,6 +57,7 @@ const Riddle: FC<RiddlePropTypes> = ({
   const handleSuccessModalSubmit = () => {
     setSuccessModalVisible(false);
     navigate(nextRoute);
+    setSolved(true);
   };
 
   return (
@@ -111,9 +113,18 @@ const Riddle: FC<RiddlePropTypes> = ({
             </div>
             <div className="riddle__hints-container">
               {hints.map((hint) => (
-                <p key={hint.id} className="riddle__hint-button">{`${t(
-                  "hint"
-                )} ${hint.id}`}</p>
+                <div key={hint.id}>
+                  <p className="riddle__hint-button">{`${t("hint")} ${
+                    hint.id
+                  }`}</p>
+                  <Timer
+                    key={+hint.id + (solved ? 1 : 0)}
+                    id={+hint.id}
+                    onCountdownOver={() => {
+                      return true;
+                    }}
+                  />
+                </div>
               ))}
             </div>
           </div>
