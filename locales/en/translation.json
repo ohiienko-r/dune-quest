@@ -25,5 +25,6 @@
     "no": "No",
     "wrongAnswer": "Wrong! Please try again.",
     "correctAnswer": "Correct!",
+    "nextRiddle": "Next riddle",
     "hint": "Hint"
 }
