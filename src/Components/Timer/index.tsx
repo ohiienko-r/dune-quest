@@ -36,11 +36,7 @@ const Timer: FC<TimerPropTypes> = ({ id, onCountdownOver }) => {
     }
   };
 
-  return (
-    <div className="timer" style={getStringcolor()}>
-      {formatTime(timeLeft)}
-    </div>
-  );
+  return <div style={getStringcolor()}>{formatTime(timeLeft)}</div>;
 };
 
 export default Timer;

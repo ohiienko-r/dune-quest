@@ -114,7 +114,7 @@ const Riddle: FC<RiddlePropTypes> = ({
             <div className="riddle__hints-container">
               {hints.map((hint) => (
                 <div key={hint.id} className="riddle__hint-container">
-                  <HintButton id={hint.id} disabled={false} />
+                  <HintButton id={hint.id} disabled={true} />
                   <Timer
                     key={+hint.id + (solved ? 1 : 0)}
                     id={+hint.id}

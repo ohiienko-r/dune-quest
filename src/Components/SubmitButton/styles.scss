@@ -1,11 +1,12 @@
 .submit-button {
+  cursor: pointer;
   padding: 1em 2em;
   border-radius: 8px;
   border: 1px solid transparent;
   color: #242424;
   font-size: 16px;
   font-weight: 600;
-  cursor: pointer;
+  transition: border 0.15s;
   &:hover {
     border: 1px solid white;
   }
