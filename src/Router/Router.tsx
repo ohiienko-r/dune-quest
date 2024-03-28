@@ -26,6 +26,7 @@ const Router = () => {
               image={riddles.first.image}
               text={riddles.first.text}
               answerFormat={riddles.first.answerFormat}
+              hints={riddles.first.hints}
               nextRoute={riddles.first.nextStep}
             />
           ),
@@ -38,6 +39,7 @@ const Router = () => {
               image={riddles.second.image}
               text={riddles.second.text}
               answerFormat={riddles.second.answerFormat}
+              hints={riddles.second.hints}
               nextRoute={riddles.second.nextStep}
             />
           ),
@@ -50,6 +52,7 @@ const Router = () => {
               image={riddles.third.image}
               text={riddles.third.text}
               answerFormat={riddles.third.answerFormat}
+              hints={riddles.third.hints}
               nextRoute={riddles.third.nextStep}
             />
           ),

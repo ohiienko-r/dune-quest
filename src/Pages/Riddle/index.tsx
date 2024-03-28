@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { SubmitButton, Modal } from "@/Components";
+import { getAnswer } from "@/Firebase";
 import { RiddlePropTypes } from "./types";
 import "./styles.scss";
 
@@ -23,9 +24,8 @@ const Riddle: FC<RiddlePropTypes> = ({
   };
 
   const handleSubmit = () => {
-    setModalVisible(true);
+    getAnswer(id);
   };
-  console.log(`${id} + ${hints} +`);
 
   return (
     <>
@@ -61,6 +61,13 @@ const Riddle: FC<RiddlePropTypes> = ({
                 onClick={handleSubmit}
                 color="submit"
               />
+            </div>
+            <div className="riddle__hints-container">
+              {hints.map((hint) => (
+                <p key={hint.id} className="riddle__hint-button">{`${t(
+                  "hint"
+                )} ${hint.id}`}</p>
+              ))}
             </div>
           </div>
         </motion.div>

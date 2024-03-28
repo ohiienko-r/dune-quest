@@ -5,6 +5,9 @@ export type RiddlePropTypes = {
   image: string;
   text: string;
   answerFormat: string;
-  hints?: string[];
+  hints: {
+    id: string;
+    hint: string;
+  }[];
   nextRoute: (typeof ROUTES_NAMES)[keyof typeof ROUTES_NAMES];
 };

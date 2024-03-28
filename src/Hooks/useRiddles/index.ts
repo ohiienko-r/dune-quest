@@ -10,7 +10,14 @@ const useRiddles = () => {
       image: "Here must be an image",
       text: t("firstRiddleText"),
       answerFormat: t("firstRiddleAnswerFormat"),
-      hints: ["", "", ""],
+      hints: [
+        { id: "1", hint: t("hint11") },
+        {
+          id: "2",
+          hint: t("hint12"),
+        },
+        { id: "3", hint: t("hint13") },
+      ],
       nextStep: ROUTES_NAMES.SECOND_RIDDLE,
     },
     second: {
@@ -18,7 +25,14 @@ const useRiddles = () => {
       image: "Here must be an image",
       text: t("secondRiddleText"),
       answerFormat: t("secondRiddleAsnwerFormat"),
-      hints: ["", "", ""],
+      hints: [
+        { id: "1", hint: t("hint21") },
+        {
+          id: "2",
+          hint: t("hint22"),
+        },
+        { id: "3", hint: t("hint23") },
+      ],
       nextStep: ROUTES_NAMES.THIRD_RIDDLE,
     },
     third: {
@@ -26,7 +40,14 @@ const useRiddles = () => {
       image: "Here must be an image",
       text: t("thirdRiddleText"),
       answerFormat: t("thirdRiddleAnswerformat"),
-      hints: ["", "", ""],
+      hints: [
+        { id: "1", hint: t("hint31") },
+        {
+          id: "2",
+          hint: t("hint32"),
+        },
+        { id: "3", hint: t("hint33") },
+      ],
       nextStep: ROUTES_NAMES.END,
     },
   };
