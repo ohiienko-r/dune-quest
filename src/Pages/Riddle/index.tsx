@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SubmitButton, Modal } from "@/Components";
 import { getAnswer } from "@/Firebase";
 import { RiddlePropTypes } from "./types";
+import closeButton from "../../assets/close_button.svg";
 import "./styles.scss";
 
 const Riddle: FC<RiddlePropTypes> = ({
@@ -17,29 +18,55 @@ const Riddle: FC<RiddlePropTypes> = ({
 }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [errorModalVisible, setErrorModalVisible] = useState<boolean>(false);
+  const [successModalvisible, setSuccessModalVisible] =
+    useState<boolean>(false);
+  const [inputValue, setInputValue] = useState<string>("");
 
-  const handleNavigate = () => {
-    navigate(nextRoute);
+  const handleSubmit = async () => {
+    if (inputValue) {
+      const correctAnswer = await getAnswer(id);
+      if (inputValue.toUpperCase() === correctAnswer?.answer.toUpperCase()) {
+        setSuccessModalVisible(true);
+      } else {
+        setErrorModalVisible(true);
+      }
+      setInputValue("");
+    }
   };
 
-  const handleSubmit = () => {
-    getAnswer(id);
+  const handleErorModalClose = () => {
+    setErrorModalVisible(false);
+  };
+
+  const handleSuccessModalSubmit = () => {
+    setSuccessModalVisible(false);
+    navigate(nextRoute);
   };
 
   return (
     <>
-      {modalVisible && (
-        <Modal>
-          <p>MODAL VISIBLE</p>
-          <button
-            onClick={() => {
-              setModalVisible(false);
-              handleNavigate();
-            }}
-          >
-            X
-          </button>
+      {errorModalVisible && (
+        <Modal borderColor="error">
+          <div className="error-modal">
+            <h2 className="modal__text">{t("wrongAnswer")}</h2>
+            <img
+              src={closeButton}
+              alt="Close Button"
+              className="error-modal__close-button"
+              onClick={handleErorModalClose}
+            />
+          </div>
+        </Modal>
+      )}
+      {successModalvisible && (
+        <Modal borderColor="success">
+          <h2 className="modal__text">{t("correctAnswer")}</h2>
+          <SubmitButton
+            caption="Next riddle"
+            onClick={handleSuccessModalSubmit}
+            color="submit"
+          />
         </Modal>
       )}
       <AnimatePresence>
@@ -55,11 +82,17 @@ const Riddle: FC<RiddlePropTypes> = ({
               <p>{answerFormat}</p>
             </div>
             <div className="riddle__answer-input-container">
-              <input type="text" className="riddle__answer-input" />
+              <input
+                type="text"
+                className="riddle__answer-input"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+              />
               <SubmitButton
                 caption={t("sendBtn")}
                 onClick={handleSubmit}
                 color="submit"
+                disabled={!inputValue}
               />
             </div>
             <div className="riddle__hints-container">

@@ -8,7 +8,7 @@ export const getAnswer = async (id: number) => {
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
-    return docSnap.data();
+    return await docSnap.data();
   } else {
     console.error("No such document!");
   }

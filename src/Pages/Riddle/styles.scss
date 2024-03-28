@@ -45,5 +45,30 @@
   }
   &__hint-button {
     text-decoration: underline;
+    cursor: pointer;
   }
+}
+
+.error-modal {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__close-button {
+    cursor: pointer;
+    width: 3em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: transform 0.3s;
+    &:hover {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.modal__text {
+  font-size: 24px;
 }

@@ -1,8 +1,19 @@
-import { FC, PropsWithChildren } from "react";
+import { FC } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ModalPropTypes } from "./types";
 import "./styles.scss";
 
-const Modal: FC<PropsWithChildren> = ({ children }) => {
+const Modal: FC<ModalPropTypes> = ({ children, borderColor = "default" }) => {
+  const getBorderColor = () => {
+    switch (borderColor) {
+      case "default":
+        return "orange";
+      case "error":
+        return "#7f1d1d";
+      case "success":
+        return "green";
+    }
+  };
   return (
     <AnimatePresence>
       <motion.div
@@ -13,6 +24,7 @@ const Modal: FC<PropsWithChildren> = ({ children }) => {
       >
         <motion.div
           className="modal__content-container"
+          style={{ borderColor: getBorderColor() }}
           initial={{ opacity: 0, y: -100 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, transition: { duration: 0.4 } }}

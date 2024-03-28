@@ -23,5 +23,7 @@
     "leaveModalCaption": "Are you sure you want to leave?",
     "yes": "Yes",
     "no": "No",
+    "wrongAnswer": "Wrong! Please try again.",
+    "correctAnswer": "Correct!",
     "hint": "Hint"
 }
