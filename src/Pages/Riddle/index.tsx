@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -22,6 +22,20 @@ const Riddle: FC<RiddlePropTypes> = ({
   const [successModalvisible, setSuccessModalVisible] =
     useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>("");
+
+  useEffect(() => {
+    const handleEnterPress = (event: KeyboardEvent) => {
+      if (event.key === "Enter") {
+        handleSubmit();
+      }
+    };
+
+    document.addEventListener("keydown", handleEnterPress);
+
+    return () => {
+      document.removeEventListener("keydown", handleEnterPress);
+    };
+  });
 
   const handleSubmit = async () => {
     if (inputValue) {
