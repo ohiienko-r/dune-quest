@@ -1,6 +1,6 @@
 export const ROUTES_NAMES = {
   HOME: "/",
-  INTRODUCTION: "/introduction",
+  INTRODUCTION: "introduction",
   RIDDLE: "/riddle#",
   FIRST_RIDDLE: "/the_beginning",
   SECOND_RIDDLE: "/the_way",
