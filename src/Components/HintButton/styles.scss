@@ -1,9 +1,11 @@
+@import "../../scss/variables.scss";
+
 .hint-button {
   cursor: pointer;
   padding: 0.5em 1em;
-  border: 2px solid orange;
+  border: 2px solid $accent-color;
   background-color: transparent;
-  color: orange;
+  color: $accent-color;
   border-radius: 1em;
   transition: transform 0.15s;
   &:hover {

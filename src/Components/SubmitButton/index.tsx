@@ -13,7 +13,7 @@ const SubmitButton: FC<SubmitButtonProps> = ({
       if (color === "dismiss") {
         return { backgroundColor: "#7f1d1d", color: "white" };
       } else if (color === "submit") {
-        return { backgroundColor: "orange" };
+        return { backgroundColor: "#ffb800" };
       }
     }
   };

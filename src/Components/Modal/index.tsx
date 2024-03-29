@@ -7,7 +7,7 @@ const Modal: FC<ModalPropTypes> = ({ children, borderColor = "default" }) => {
   const getBorderColor = () => {
     switch (borderColor) {
       case "default":
-        return "orange";
+        return "#ffb800";
       case "error":
         return "#7f1d1d";
       case "success":

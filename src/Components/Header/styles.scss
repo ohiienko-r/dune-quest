@@ -2,7 +2,7 @@
   &__container {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 2em 1em;
+    padding: 20px 10px;
     display: flex;
     justify-content: space-between;
     @media screen and (min-width: 375px) and (max-width: 768px) {
@@ -13,34 +13,6 @@
     font-size: 24px;
     user-select: none;
     cursor: pointer;
-  }
-  &__lang-switcher {
-    cursor: pointer;
-    appearance: none;
-    position: relative;
-    width: 60px;
-    height: 30px;
-    border: 1px solid orange;
-    border-radius: 100px;
-    transition: background-color 0.2s;
-    &::after {
-      position: absolute;
-      content: "";
-      top: 50%;
-      left: 25%;
-      transform: translate(-50%, -50%);
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background-color: white;
-      transition: left 0.2s;
-    }
-    &:checked {
-      background-color: orange;
-      &::after {
-        left: 75%;
-      }
-    }
   }
 }
 

@@ -92,7 +92,7 @@ const Riddle: FC<RiddlePropTypes> = ({
           animate={{ opacity: 1 }}
         >
           <div className="riddle__container">
-            <h2>{image}</h2>
+            <img src={image} alt="Riddle image" className="riddle__image" />
             <div className="riddle__text-container">
               <p>{text}</p>
               <p>{answerFormat}</p>
