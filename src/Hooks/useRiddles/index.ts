@@ -1,6 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { ROUTES_NAMES } from "@/Router/routes-names";
 import firstRiddleImg from "@/assets/first_riddle.png";
+import secondRiddleImg from "@/assets/second_riddle.png";
+import thirdRiddleImg from "@/assets/third_riddle.png";
 
 const useRiddles = () => {
   const { t } = useTranslation();
@@ -23,7 +25,7 @@ const useRiddles = () => {
     },
     second: {
       id: 1,
-      image: "Here must be an image",
+      image: secondRiddleImg,
       text: t("secondRiddleText"),
       answerFormat: t("secondRiddleAsnwerFormat"),
       hints: [
@@ -38,7 +40,7 @@ const useRiddles = () => {
     },
     third: {
       id: 2,
-      image: "Here must be an image",
+      image: thirdRiddleImg,
       text: t("thirdRiddleText"),
       answerFormat: t("thirdRiddleAnswerformat"),
       hints: [

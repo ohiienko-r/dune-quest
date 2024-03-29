@@ -116,7 +116,7 @@ const Riddle: FC<RiddlePropTypes> = ({
                 <div key={hint.id} className="riddle__hint-container">
                   <HintButton id={hint.id} disabled={true} />
                   <Timer
-                    key={+hint.id + (solved ? 1 : 0)}
+                    key={+hint.id + (solved ? id : 0)}
                     id={+hint.id}
                     onCountdownOver={() => {
                       return true;
