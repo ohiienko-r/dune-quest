@@ -1,12 +1,14 @@
 import { FC, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { HintButtonWithTimerPropTypes } from "./types";
+import { Modal, SubmitButton } from "..";
+import { HintPropTypes } from "./types";
 import "./styles.scss";
 
-const HintButtonWithTimer: FC<HintButtonWithTimerPropTypes> = ({ id }) => {
+const Hint: FC<HintPropTypes> = ({ id, hintText }) => {
   const { t } = useTranslation();
   const [timeLeft, setTimeLeft] = useState<number>(id * 60);
   const [disabled, setDisabled] = useState<boolean>(true);
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -23,6 +25,10 @@ const HintButtonWithTimer: FC<HintButtonWithTimerPropTypes> = ({ id }) => {
 
     return () => clearInterval(timer);
   }, [id]);
+
+  const handleSubmit = () => {
+    setModalVisible(!modalVisible);
+  };
 
   const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
@@ -41,15 +47,25 @@ const HintButtonWithTimer: FC<HintButtonWithTimerPropTypes> = ({ id }) => {
   };
 
   return (
-    <div className="hint">
-      <button disabled={disabled} className="hint__button">{`${t(
-        "hint"
-      )} ${id}`}</button>
-      <div className="hint__timer" style={getStringcolor()}>
-        {formatTime(timeLeft)}
+    <>
+      {modalVisible && (
+        <Modal>
+          <p>{hintText}</p>
+          <SubmitButton caption="Ok" onClick={handleSubmit} color="submit" />
+        </Modal>
+      )}
+      <div className="hint">
+        <button
+          onClick={handleSubmit}
+          disabled={disabled}
+          className="hint__button"
+        >{`${t("hint")} ${id}`}</button>
+        <div className="hint__timer" style={getStringcolor()}>
+          {formatTime(timeLeft)}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default HintButtonWithTimer;
+export default Hint;
