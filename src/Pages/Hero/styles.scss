@@ -20,5 +20,44 @@
     justify-content: space-between;
     border-radius: 20px;
     background-color: $hero-bg-color;
+    @media screen and (min-width: 375px) and (max-width: 1366px) {
+      max-width: 80%;
+      padding: 25px;
+      gap: 2em;
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+    }
+  }
+  &__text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  &__greeting-tile {
+    font-size: 30px;
+    font-weight: 700;
+  }
+  &__instructions-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  &__instructions-title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  &__instructions-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    &__line-number {
+      display: inline-block;
+      width: 20px;
+    }
   }
 }
