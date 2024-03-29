@@ -1,16 +1,19 @@
 import { FC, useState, useEffect } from "react";
-import { TimerPropTypes } from "./types";
+import { useTranslation } from "react-i18next";
+import { HintButtonWithTimerPropTypes } from "./types";
 import "./styles.scss";
 
-const Timer: FC<TimerPropTypes> = ({ id, onCountdownOver }) => {
+const HintButtonWithTimer: FC<HintButtonWithTimerPropTypes> = ({ id }) => {
+  const { t } = useTranslation();
   const [timeLeft, setTimeLeft] = useState<number>(id * 60);
+  const [disabled, setDisabled] = useState<boolean>(true);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft((prevTimeLeft) => {
         if (prevTimeLeft === 0) {
           clearInterval(timer);
-          onCountdownOver();
+          setDisabled(false);
           return 0;
         } else {
           return prevTimeLeft - 1;
@@ -19,7 +22,7 @@ const Timer: FC<TimerPropTypes> = ({ id, onCountdownOver }) => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [id, onCountdownOver]);
+  }, [id]);
 
   const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
@@ -38,10 +41,15 @@ const Timer: FC<TimerPropTypes> = ({ id, onCountdownOver }) => {
   };
 
   return (
-    <div className="timer" style={getStringcolor()}>
-      {formatTime(timeLeft)}
+    <div className="hint">
+      <button disabled={disabled} className="hint__button">{`${t(
+        "hint"
+      )} ${id}`}</button>
+      <div className="hint__timer" style={getStringcolor()}>
+        {formatTime(timeLeft)}
+      </div>
     </div>
   );
 };
 
-export default Timer;
+export default HintButtonWithTimer;

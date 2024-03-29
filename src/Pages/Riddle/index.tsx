@@ -2,7 +2,7 @@ import { FC, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { SubmitButton, Modal, Timer, HintButton } from "@/Components";
+import { SubmitButton, Modal, HintButtonWithTimer } from "@/Components";
 import { getAnswer } from "@/Firebase";
 import { RiddlePropTypes } from "./types";
 import closeButton from "../../assets/close_button.svg";
@@ -23,11 +23,6 @@ const Riddle: FC<RiddlePropTypes> = ({
     useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>("");
   const [solved, setSolved] = useState<boolean>(false);
-  const [isTimeOver, setIsTimeOver] = useState(false);
-
-  const handleCountdownOver = () => {
-    setIsTimeOver(true);
-  };
 
   useEffect(() => {
     const handleEnterPress = (event: KeyboardEvent) => {
@@ -119,11 +114,9 @@ const Riddle: FC<RiddlePropTypes> = ({
             <div className="riddle__hints-container">
               {hints.map((hint) => (
                 <div key={hint.id} className="riddle__hint-container">
-                  <HintButton id={hint.id} disabled={!isTimeOver} />
-                  <Timer
-                    key={+hint.id + (solved ? id : 0)}
+                  <HintButtonWithTimer
                     id={+hint.id}
-                    onCountdownOver={handleCountdownOver}
+                    key={+hint.id + (solved ? id : 0)}
                   />
                 </div>
               ))}

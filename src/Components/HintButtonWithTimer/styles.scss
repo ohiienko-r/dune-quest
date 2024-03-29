@@ -1,0 +1,29 @@
+@import "../../scss/variables.scss";
+
+.hint {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  &__button {
+    cursor: pointer;
+    padding: 0.5em 1em;
+    border: 2px solid $accent-color;
+    background-color: transparent;
+    color: $accent-color;
+    border-radius: 1em;
+    transition: transform 0.15s;
+    &:hover {
+      transform: translateY(-5px);
+    }
+    &:disabled {
+      border: 2px solid gray;
+      color: gray;
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+  &__timer {
+    width: 40px;
+  }
+}
