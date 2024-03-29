@@ -79,7 +79,7 @@ const Riddle: FC<RiddlePropTypes> = ({
         <Modal borderColor="success">
           <h2 className="modal__text">{t("correctAnswer")}</h2>
           <SubmitButton
-            caption="Next riddle"
+            caption={t("nextRiddle")}
             onClick={handleSuccessModalSubmit}
             color="submit"
           />

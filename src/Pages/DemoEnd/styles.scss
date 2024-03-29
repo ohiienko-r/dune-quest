@@ -1,0 +1,42 @@
+@import "../../scss/variables.scss";
+
+.endspiel__container {
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-width: 630px;
+  max-height: 80%;
+  height: 100%;
+  padding: 0.5em 0.5em 3.125em 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
+  background-color: $background-color;
+  @media screen and (min-width: 375px) and (max-width: 1366px) {
+    max-width: 80%;
+  }
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+}
+
+.link-button {
+  cursor: pointer;
+  background-color: $accent-color;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid #161111;
+  color: #000;
+  font-size: 16px;
+  font-weight: 700;
+  transition: border 0.2s;
+  &:hover {
+    border: 1px solid #f4e6c3;
+  }
+  &:disabled {
+    &:hover {
+      border: 1px solid #161111;
+    }
+  }
+}

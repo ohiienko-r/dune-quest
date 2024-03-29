@@ -1,3 +1,4 @@
 export { default as Hero } from "./Hero/index";
 export { default as Riddle } from "./Riddle/index";
 export { default as Introduction } from "./Introduction/index";
+export { default as DemoEnd } from "./DemoEnd/inedx";

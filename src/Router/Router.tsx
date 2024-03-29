@@ -3,7 +3,7 @@ import { useRiddles } from "@/Hooks";
 import Root from "./rotues/Root";
 import Error from "./rotues/Error";
 import { ROUTES_NAMES } from "./routes-names";
-import { Hero, Introduction, Riddle } from "@/Pages";
+import { Hero, Introduction, Riddle, DemoEnd } from "@/Pages";
 
 const Router = () => {
   const { riddles } = useRiddles();
@@ -60,6 +60,10 @@ const Router = () => {
               nextRoute={riddles.third.nextStep}
             />
           ),
+        },
+        {
+          path: ROUTES_NAMES.END,
+          element: <DemoEnd />,
         },
       ],
     },
