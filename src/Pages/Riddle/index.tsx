@@ -1,12 +1,14 @@
 import { FC, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { SubmitButton, Modal, Hint } from "@/Components";
 import { getAnswer } from "@/Firebase";
 import { RiddlePropTypes } from "./types";
-import closeButton from "../../assets/close_button.svg";
+import closeButton from "@/assets/close_button.svg";
+import expandButton from "@/assets/expand-button.svg";
 import "./styles.scss";
+import { ROUTES_NAMES } from "@/Router/routes-names";
 
 const Riddle: FC<RiddlePropTypes> = ({
   id,
@@ -18,11 +20,13 @@ const Riddle: FC<RiddlePropTypes> = ({
 }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
   const [errorModalVisible, setErrorModalVisible] = useState<boolean>(false);
   const [successModalvisible, setSuccessModalVisible] =
     useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>("");
   const [solved, setSolved] = useState<boolean>(false);
+  const [imgExpanded, setImgExpanded] = useState<boolean>(false);
 
   useEffect(() => {
     const handleEnterPress = (event: KeyboardEvent) => {
@@ -60,6 +64,10 @@ const Riddle: FC<RiddlePropTypes> = ({
     setSolved(true);
   };
 
+  const handleImgExpand = () => {
+    setImgExpanded(!imgExpanded);
+  };
+
   return (
     <>
       {errorModalVisible && (
@@ -85,6 +93,20 @@ const Riddle: FC<RiddlePropTypes> = ({
           />
         </Modal>
       )}
+      {imgExpanded && (
+        <motion.div
+          className="expanded-img__container"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <img src={image} alt="Expanded riddle image" />
+          <img
+            src={expandButton}
+            className="riddle__expand-btn"
+            onClick={handleImgExpand}
+          />
+        </motion.div>
+      )}
       <AnimatePresence>
         <motion.div
           className="riddle"
@@ -92,7 +114,16 @@ const Riddle: FC<RiddlePropTypes> = ({
           animate={{ opacity: 1, transition: { duration: 0.5 } }}
         >
           <div className="riddle__container">
-            <img src={image} alt="Riddle image" className="riddle__image" />
+            <div className="riddle__img-container">
+              <img src={image} alt="Riddle image" className="riddle__image" />
+              {location.pathname === ROUTES_NAMES.THIRD_RIDDLE && (
+                <img
+                  src={expandButton}
+                  className="riddle__expand-btn"
+                  onClick={handleImgExpand}
+                />
+              )}
+            </div>
             <div className="riddle__text-container">
               <p>{text}</p>
               <p>{answerFormat}</p>
