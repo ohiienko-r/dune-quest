@@ -3,7 +3,7 @@ import { useRiddles } from "@/Hooks";
 import Root from "./rotues/Root";
 import Error from "./rotues/Error";
 import { ROUTES_NAMES } from "./routes-names";
-import { Hero, Riddle } from "@/Pages";
+import { Hero, Introduction, Riddle } from "@/Pages";
 
 const Router = () => {
   const { riddles } = useRiddles();
@@ -17,6 +17,10 @@ const Router = () => {
         {
           index: true,
           element: <Hero />,
+        },
+        {
+          path: ROUTES_NAMES.INTRODUCTION,
+          element: <Introduction />,
         },
         {
           path: ROUTES_NAMES.FIRST_RIDDLE,

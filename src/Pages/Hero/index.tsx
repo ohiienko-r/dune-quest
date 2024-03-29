@@ -22,7 +22,7 @@ const Hero: FC = () => {
   ];
 
   const handleSubmit = () => {
-    navigate(ROUTES_NAMES.FIRST_RIDDLE);
+    navigate(ROUTES_NAMES.INTRODUCTION);
   };
 
   return (
