@@ -1,5 +1,8 @@
 {
-    "heroTitle": "Delve into adventurous journey!",
+    "heroTitle": "Greetings!",
+    "heroSubTitle1": "Are you ready to venture into the world of Dune and take on the",
+    "heroSubTitle2": "DUNE: CHALLENGE OF ARRAKIS",
+    "heroDescription": "This quest is not directly tied to the storyline of Dune, making it perfect for fans and newcomers alike. To fully immerse yourself in the experience, we recommend watching the movies 'Dune' and 'Dune: Part Two' or reading the original novel by Frank Herbert.",
     "heroBtn": "Start the room",
     "errorTitle": "Oops!",
     "errorText": "Seems like you are lost in sands...",

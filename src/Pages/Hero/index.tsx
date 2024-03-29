@@ -18,16 +18,23 @@ const Hero: FC = () => {
     <AnimatePresence>
       <motion.div
         className="hero"
-        initial={{ opacity: 0, y: -100 }}
+        initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -100 }}
       >
-        <h2 className="hero__title">{t("heroTitle")}</h2>
-        <SubmitButton
-          caption={t("heroBtn")}
-          onClick={handleSubmit}
-          color="submit"
-        />
+        <div className="hero__container">
+          <div className="hero__text-container">
+            <h2>{t("heroTitle")}</h2>
+            <p>{t("heroSubTitle1")}</p>
+            <b>{t("heroSubTitle2")}</b>
+            <span>?</span>
+            <p>{t("heroDescription")}</p>
+          </div>
+          <SubmitButton
+            caption={t("heroBtn")}
+            onClick={handleSubmit}
+            color="submit"
+          />
+        </div>
       </motion.div>
     </AnimatePresence>
   );

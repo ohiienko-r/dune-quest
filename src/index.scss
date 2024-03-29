@@ -22,6 +22,9 @@
   height: 100svh;
   position: relative;
   overflow-y: auto;
+  @media screen and (min-width: 1366px) {
+    overflow: hidden;
+  }
 }
 
 #error-page {
