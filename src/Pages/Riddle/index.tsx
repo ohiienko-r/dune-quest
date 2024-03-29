@@ -23,6 +23,11 @@ const Riddle: FC<RiddlePropTypes> = ({
     useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>("");
   const [solved, setSolved] = useState<boolean>(false);
+  const [isTimeOver, setIsTimeOver] = useState(false);
+
+  const handleCountdownOver = () => {
+    setIsTimeOver(true);
+  };
 
   useEffect(() => {
     const handleEnterPress = (event: KeyboardEvent) => {
@@ -89,7 +94,7 @@ const Riddle: FC<RiddlePropTypes> = ({
         <motion.div
           className="riddle"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={{ opacity: 1, transition: { duration: 0.5 } }}
         >
           <div className="riddle__container">
             <img src={image} alt="Riddle image" className="riddle__image" />
@@ -114,13 +119,11 @@ const Riddle: FC<RiddlePropTypes> = ({
             <div className="riddle__hints-container">
               {hints.map((hint) => (
                 <div key={hint.id} className="riddle__hint-container">
-                  <HintButton id={hint.id} disabled={true} />
+                  <HintButton id={hint.id} disabled={!isTimeOver} />
                   <Timer
                     key={+hint.id + (solved ? id : 0)}
                     id={+hint.id}
-                    onCountdownOver={() => {
-                      return true;
-                    }}
+                    onCountdownOver={handleCountdownOver}
                   />
                 </div>
               ))}

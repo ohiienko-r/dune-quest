@@ -16,7 +16,11 @@ const Introduction: FC = () => {
   };
 
   return (
-    <div className="introduction">
+    <motion.div
+      className="introduction"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 0.5 } }}
+    >
       <motion.div
         className="introduction__text-container"
         initial={{ y: -50 }}
@@ -41,7 +45,7 @@ const Introduction: FC = () => {
         initial={{ y: 50 }}
         animate={{ y: 0, transition: { duration: 1 } }}
       />
-    </div>
+    </motion.div>
   );
 };
 
