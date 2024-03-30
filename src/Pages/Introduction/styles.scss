@@ -2,30 +2,38 @@
 
 .introduction {
   position: relative;
+  overflow-y: hidden;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   background-color: $introduction-background-color;
   &__text-container {
+    box-sizing: border-box;
+    padding-top: 6em;
     z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 3em;
     max-width: 560px;
-    margin-top: 100px;
     color: $introduction-text-color;
+    @media screen and (min-width: 375px) and (max-width: 600px) {
+      padding-top: 4em;
+    }
   }
   &__text-block {
     display: flex;
     flex-direction: column;
     gap: 25px;
     line-height: 20px;
+    @media screen and (min-width: 375px) and (max-width: 600px) {
+      padding: 0 20px;
+    }
   }
   &__arakis-img {
     position: absolute;
     width: 100%;
-    bottom: -50px;
+    bottom: 0px;
   }
 }

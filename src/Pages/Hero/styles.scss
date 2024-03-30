@@ -20,8 +20,9 @@
     justify-content: space-between;
     border-radius: 20px;
     background-color: $hero-bg-color;
-    @media screen and (min-width: 375px) and (max-width: 1366px) {
+    @media screen and (min-width: 375px) and (max-width: 740px) {
       max-width: 80%;
+      max-height: 70%;
       padding: 25px;
       gap: 2em;
       overflow-y: auto;
