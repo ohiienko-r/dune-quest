@@ -22,12 +22,14 @@ const DemoEnd: FC = () => {
             <p>{t("endOfDemo2")}</p>
             <p>{t("endOfDemo3")}</p>
           </div>
-          <Link
-            to="https://ko-fi.com/virtualescaperooms"
-            className="link-button"
-          >
-            {t("toPayment")}
-          </Link>
+          <div>
+            <Link
+              to="https://ko-fi.com/virtualescaperooms"
+              className="link-button"
+            >
+              {t("toPayment")}
+            </Link>
+          </div>
         </div>
       </motion.div>
     </AnimatePresence>
