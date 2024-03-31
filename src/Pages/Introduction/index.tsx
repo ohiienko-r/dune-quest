@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { ROUTES_NAMES } from "@/Router/routes-names";
 import { SubmitButton } from "@/Components";
-import arakisImg from "@/assets/arakis.png";
+import arakisImg from "@/assets/arakis.avif";
 import "./styles.scss";
 
 const Introduction: FC = () => {
