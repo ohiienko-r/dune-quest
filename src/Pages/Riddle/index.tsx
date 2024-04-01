@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect, lazy, Suspense } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,6 +8,7 @@ import { RiddlePropTypes } from "./types";
 import { ROUTES_NAMES } from "@/Router/routes-names";
 import closeButton from "@/assets/close_button.svg";
 import stereoImage from "@/assets/third_riddle.png";
+import loader from "@/assets/loader.svg";
 import "./styles.scss";
 
 const Riddle: FC<RiddlePropTypes> = ({
@@ -99,7 +100,9 @@ const Riddle: FC<RiddlePropTypes> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <img src={stereoImage} alt="Expanded riddle" />
+          <Suspense fallback={<img src={loader} alt="Loader" />}>
+            <img src={stereoImage} alt="Expanded riddle" />
+          </Suspense>
           <ExpandButton onClick={handleImgExpand} />
         </motion.div>
       )}
