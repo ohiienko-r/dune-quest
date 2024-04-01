@@ -45,6 +45,10 @@
   &__expand-btn {
     cursor: pointer;
     width: 36px;
+    height: 36px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
     position: absolute;
     transition: transform 0.2s;
     bottom: 20px;
@@ -115,7 +119,11 @@
   align-items: center;
   &__close-button {
     cursor: pointer;
-    width: 3em;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    width: 48px;
+    height: 48px;
     position: absolute;
     top: 0;
     right: 0;

@@ -2,14 +2,13 @@ import { FC, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { SubmitButton, Modal, Hint } from "@/Components";
+import { SubmitButton, Modal, Hint, ExpandButton } from "@/Components";
 import { getAnswer } from "@/Firebase";
 import { RiddlePropTypes } from "./types";
+import { ROUTES_NAMES } from "@/Router/routes-names";
 import closeButton from "@/assets/close_button.svg";
-import expandButton from "@/assets/expand-button.svg";
 import stereoImage from "@/assets/third_riddle.png";
 import "./styles.scss";
-import { ROUTES_NAMES } from "@/Router/routes-names";
 
 const Riddle: FC<RiddlePropTypes> = ({
   id,
@@ -75,12 +74,12 @@ const Riddle: FC<RiddlePropTypes> = ({
         <Modal borderColor="error">
           <div className="error-modal">
             <h2 className="modal__text">{t("wrongAnswer")}</h2>
-            <img
-              src={closeButton}
-              alt="Close Button"
+            <button
               className="error-modal__close-button"
               onClick={handleErorModalClose}
-            />
+            >
+              <img src={closeButton} alt="Close Button" />
+            </button>
           </div>
         </Modal>
       )}
@@ -101,11 +100,7 @@ const Riddle: FC<RiddlePropTypes> = ({
           animate={{ opacity: 1 }}
         >
           <img src={stereoImage} alt="Expanded riddle" />
-          <img
-            src={expandButton}
-            className="riddle__expand-btn"
-            onClick={handleImgExpand}
-          />
+          <ExpandButton onClick={handleImgExpand} />
         </motion.div>
       )}
       <AnimatePresence>
@@ -118,11 +113,7 @@ const Riddle: FC<RiddlePropTypes> = ({
             <div className="riddle__img-container">
               <img src={image} alt="Riddle" className="riddle__image" />
               {location.pathname === ROUTES_NAMES.THIRD_RIDDLE && (
-                <img
-                  src={expandButton}
-                  className="riddle__expand-btn"
-                  onClick={handleImgExpand}
-                />
+                <ExpandButton onClick={handleImgExpand} />
               )}
             </div>
             <div className="riddle__text-container">

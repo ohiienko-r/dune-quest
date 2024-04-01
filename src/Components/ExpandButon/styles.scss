@@ -1,0 +1,21 @@
+.expand-button {
+  cursor: pointer;
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  transition: transform 0.2s;
+  bottom: 20px;
+  right: 20px;
+  &:hover {
+    transform: scale(1.2);
+  }
+  &:active {
+    transform: scale(1);
+  }
+  @media screen and (min-width: 375px) and (max-width: 1094px) {
+    display: none;
+  }
+}
