@@ -7,6 +7,7 @@ import { getAnswer } from "@/Firebase";
 import { RiddlePropTypes } from "./types";
 import closeButton from "@/assets/close_button.svg";
 import expandButton from "@/assets/expand-button.svg";
+import stereoImage from "@/assets/first_riddle.png";
 import "./styles.scss";
 import { ROUTES_NAMES } from "@/Router/routes-names";
 
@@ -99,7 +100,7 @@ const Riddle: FC<RiddlePropTypes> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <img src={image} alt="Expanded riddle image" />
+          <img src={stereoImage} alt="Expanded riddle" />
           <img
             src={expandButton}
             className="riddle__expand-btn"
@@ -115,7 +116,7 @@ const Riddle: FC<RiddlePropTypes> = ({
         >
           <div className="riddle__container">
             <div className="riddle__img-container">
-              <img src={image} alt="Riddle image" className="riddle__image" />
+              <img src={image} alt="Riddle" className="riddle__image" />
               {location.pathname === ROUTES_NAMES.THIRD_RIDDLE && (
                 <img
                   src={expandButton}
