@@ -7,7 +7,7 @@ import { getAnswer } from "@/Firebase";
 import { RiddlePropTypes } from "./types";
 import closeButton from "@/assets/close_button.svg";
 import expandButton from "@/assets/expand-button.svg";
-import stereoImage from "@/assets/first_riddle.png";
+import stereoImage from "@/assets/third_riddle.png";
 import "./styles.scss";
 import { ROUTES_NAMES } from "@/Router/routes-names";
 
