@@ -1,4 +1,4 @@
-import { FC, useState, useEffect, lazy, Suspense } from "react";
+import { FC, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -100,9 +100,7 @@ const Riddle: FC<RiddlePropTypes> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <Suspense fallback={<img src={loader} alt="Loader" />}>
-            <img src={stereoImage} alt="Expanded riddle" />
-          </Suspense>
+          <img src={stereoImage} alt="Expanded riddle" loading="lazy" />
           <ExpandButton onClick={handleImgExpand} />
         </motion.div>
       )}
