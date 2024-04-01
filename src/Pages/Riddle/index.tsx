@@ -6,9 +6,9 @@ import { SubmitButton, Modal, Hint, ExpandButton } from "@/Components";
 import { getAnswer } from "@/Firebase";
 import { RiddlePropTypes } from "./types";
 import { ROUTES_NAMES } from "@/Router/routes-names";
+import { preloadFullSizeImage } from "./helpers";
 import closeButton from "@/assets/close_button.svg";
 import stereoImage from "@/assets/third_riddle.png";
-import loader from "@/assets/loader.svg";
 import "./styles.scss";
 
 const Riddle: FC<RiddlePropTypes> = ({
@@ -28,6 +28,10 @@ const Riddle: FC<RiddlePropTypes> = ({
   const [inputValue, setInputValue] = useState<string>("");
   const [solved, setSolved] = useState<boolean>(false);
   const [imgExpanded, setImgExpanded] = useState<boolean>(false);
+
+  useEffect(() => {
+    preloadFullSizeImage(stereoImage);
+  }, []);
 
   useEffect(() => {
     const handleEnterPress = (event: KeyboardEvent) => {
@@ -100,7 +104,7 @@ const Riddle: FC<RiddlePropTypes> = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <img src={stereoImage} alt="Expanded riddle" loading="lazy" />
+          <img src={stereoImage} alt="Expanded riddle" />
           <ExpandButton onClick={handleImgExpand} />
         </motion.div>
       )}
