@@ -22,7 +22,7 @@ const Riddle: FC<RiddlePropTypes> = ({
   const navigate = useNavigate();
   const location = useLocation();
   const [errorModalVisible, setErrorModalVisible] = useState<boolean>(false);
-  const [successModalvisible, setSuccessModalVisible] =
+  const [successModalvisible, setSuccessModalvisible] =
     useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>("");
   const [solved, setSolved] = useState<boolean>(false);
@@ -46,7 +46,7 @@ const Riddle: FC<RiddlePropTypes> = ({
     if (inputValue) {
       const correctAnswer = await getAnswer(id);
       if (inputValue.toUpperCase() === correctAnswer?.answer.toUpperCase()) {
-        setSuccessModalVisible(true);
+        setSuccessModalvisible(true);
       } else {
         setErrorModalVisible(true);
       }
@@ -59,7 +59,7 @@ const Riddle: FC<RiddlePropTypes> = ({
   };
 
   const handleSuccessModalSubmit = () => {
-    setSuccessModalVisible(false);
+    setSuccessModalvisible(false);
     navigate(nextRoute);
     setSolved(true);
   };

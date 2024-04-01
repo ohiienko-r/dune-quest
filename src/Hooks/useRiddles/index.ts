@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { ROUTES_NAMES } from "@/Router/routes-names";
-import firstRiddleImg from "@/assets/first_riddle.png";
-import secondRiddleImg from "@/assets/second_riddle.png";
-import thirdRiddleImg from "@/assets/third_riddle.png";
+import firstRiddleImg from "@/assets/first_riddle.avif";
+import secondRiddleImg from "@/assets/second_riddle.avif";
+import thirdRiddleImg from "@/assets/third_riddle.avif";
 
 const useRiddles = () => {
   const { t } = useTranslation();
