@@ -8,6 +8,7 @@
   align-items: center;
   gap: 2em;
   &__container {
+    position: relative;
     overflow-y: auto;
     box-sizing: border-box;
     max-width: 630px;
@@ -65,5 +66,25 @@
       display: inline-block;
       width: 20px;
     }
+  }
+  &__scroll-indicator {
+    position: absolute;
+    width: 48px;
+    top: 20px;
+    right: 20px;
+    align-self: self-end;
+    animation: jumpy 1s infinite;
+    @media screen and (height > 700px) {
+      display: none;
+    }
+  }
+}
+
+@keyframes jumpy {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
   }
 }

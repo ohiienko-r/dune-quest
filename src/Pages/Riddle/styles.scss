@@ -27,9 +27,6 @@
     @media screen and (height < 750px) {
       max-height: 80%;
     }
-    &::-webkit-scrollbar {
-      width: 0;
-    }
   }
   &__img-container {
     position: relative;

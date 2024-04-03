@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { SubmitButton } from "@/Components";
 import { ROUTES_NAMES } from "@/Router/routes-names";
+import scrollIndicator from "@/assets/double_arrow.svg";
 import "./styles.scss";
 
 const Hero: FC = () => {
@@ -58,6 +59,11 @@ const Hero: FC = () => {
             caption={t("heroBtn")}
             onClick={handleSubmit}
             color="submit"
+          />
+          <img
+            src={scrollIndicator}
+            alt="Scroll availability indicator"
+            className="hero__scroll-indicator"
           />
         </div>
       </motion.div>
