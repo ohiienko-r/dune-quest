@@ -31,6 +31,9 @@
         width: 0;
       }
     }
+    @media screen and (height < 750px) {
+      max-height: 85%;
+    }
   }
   &__text-container {
     display: flex;
@@ -47,6 +50,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
+    margin-bottom: clamp(10px, 1em, 20px);
   }
   &__instructions-title {
     font-size: 20px;
