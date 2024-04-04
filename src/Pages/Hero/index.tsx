@@ -1,8 +1,8 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { SubmitButton } from "@/Components";
+import { SubmitButton, ToastNotification } from "@/Components";
 import { ROUTES_NAMES } from "@/Router/routes-names";
 import scrollIndicator from "@/assets/double_arrow.svg";
 import "./styles.scss";
@@ -10,6 +10,15 @@ import "./styles.scss";
 const Hero: FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [toastVisible, setToastVisible] = useState<boolean>(false);
+
+  useEffect(() => {
+    setTimeout(() => setToastVisible(!toastVisible), 1000);
+  }, []);
+
+  const handleToastClose = () => {
+    setToastVisible(!toastVisible);
+  };
 
   const howToStartList = [
     { id: 1, text: t("howTo1") },
@@ -66,6 +75,9 @@ const Hero: FC = () => {
             className="hero__scroll-indicator"
           />
         </div>
+        {toastVisible && (
+          <ToastNotification text={t("toastText")} onClick={handleToastClose} />
+        )}
       </motion.div>
     </AnimatePresence>
   );

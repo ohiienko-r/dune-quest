@@ -1,0 +1,31 @@
+@import "../../scss/variables.scss";
+
+.toast {
+  position: absolute;
+  bottom: 2em;
+  right: 2em;
+  box-sizing: border-box;
+  background-color: $background-color;
+  max-width: 370px;
+  border-radius: 20px;
+  &__inner-container {
+    padding: 20px;
+    position: relative;
+  }
+  &__close-button {
+    cursor: pointer;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    transition: transform 0.3s;
+    &--image {
+      width: 32px;
+    }
+    &:hover {
+      transform: rotate(90deg);
+    }
+  }
+}
