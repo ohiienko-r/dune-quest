@@ -6,11 +6,12 @@ import "./styles.scss";
 
 const Hint: FC<HintPropTypes> = ({ id, hintText }) => {
   const { t } = useTranslation();
-  const [timeLeft, setTimeLeft] = useState<number>(id * 60);
+  const [timeLeft, setTimeLeft] = useState<number>(0);
   const [disabled, setDisabled] = useState<boolean>(true);
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   useEffect(() => {
+    setInitialTime();
     const timer = setInterval(() => {
       setTimeLeft((prevTimeLeft) => {
         if (prevTimeLeft === 0) {
@@ -28,6 +29,20 @@ const Hint: FC<HintPropTypes> = ({ id, hintText }) => {
 
   const handleSubmit = () => {
     setModalVisible(!modalVisible);
+  };
+
+  const setInitialTime = () => {
+    switch (id) {
+      case 1:
+        setTimeLeft(60);
+        break;
+      case 2:
+        setTimeLeft(180);
+        break;
+      case 3:
+        setTimeLeft(300);
+        break;
+    }
   };
 
   const formatTime = (time: number) => {
